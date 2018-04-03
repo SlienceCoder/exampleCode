@@ -2,22 +2,40 @@ package main
 
 import (
 	"fmt"
-	"math"
+	// "math"
 )
 
 // 1. 判断 101-200 之间有多少个素数，并输出所有素数。
-func main() {
-	var count int
-	for i := 101; i < 201; i++ {
-		for j := 2; j < math.Sqrt(i); j++ {
-			if i%j == 0 {
-				break
-			}
-			if k > math.Sqrt(i) {
-				fmt.Println(i)
-			}
 
+func judgeSushu(n int) bool {
+	var flag bool = true
+	for i := 2; i < n; i++ {
+		if n%i == 0 {
+			flag = false
 		}
+
 	}
-	fmt.Println(count)
+
+	if flag {
+		fmt.Println("我是素数--", n)
+		return true
+	} else {
+		return false
+	}
+}
+
+func main() {
+
+	var n, m int = 101, 200
+
+	// Scanf("%d%d", &n, &m)
+
+	for i := n; i < m; i++ {
+
+		judgeSushu(i)
+
+	}
+
+	// fmt.Println(judgeSushu(10))
+
 }
